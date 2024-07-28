@@ -1,6 +1,8 @@
 body {
     background-color: #BFBFBF;
     margin: 0;
+    font-family: 'VT323', monospace;
+    font-size: x-large;
 }
 
 .nav-link {
