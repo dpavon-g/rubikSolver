@@ -1,0 +1,19 @@
+body {
+    background-color: #BFBFBF;
+}
+
+.nav-link {
+    color: #595959;
+}
+
+.nav-link:hover {
+    background-color: #595959;
+    border: 1px solid #595959;
+    color: #BFBFBF;
+}
+
+.btn-active {
+    color: #BFBFBF;
+    background-color: #8C8C8C;
+    border: 1px solid #8C8C8C;
+}
