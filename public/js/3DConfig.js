@@ -27,47 +27,24 @@ container.style.width = `${newWidth}px`;
 container.style.height = `${newHeight}px`;
 container.appendChild(renderer.domElement);
 
-// // Añadir una figura 3D (cubo)
-// const geometry = new THREE.BoxGeometry();
-// const material = new THREE.MeshBasicMaterial({ color: 0x595959 });
-// const cube = new THREE.Mesh(geometry, material);
-// cube.scale.set(2, 2, 2);
-// scene.add(cube);
+// Añadir una figura 3D (cubo)
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x595959 });
+const cube = new THREE.Mesh(geometry, material);
+cube.scale.set(2, 2, 2);
+scene.add(cube);
 
-// Añadir una fuente de luz
-const light = new THREE.AmbientLight(0xffffff); // Luz ambiental blanca
-scene.add(light);
+// Animación
+function animate() {
+    requestAnimationFrame(animate);
 
-// Cargar el modelo 3D .gltf
-const loader = new GLTFLoader();
-loader.load('resources/models/modelo/rubiksCube.gltf', function (gltf) {
-    const model = gltf.scene;
-    console.log('Modelo cargado:', model); // Verifica si el modelo se carga
-    
-    // Ajustes de depuración para la escala y posición del modelo
-    model.scale.set(0.5, 0.5, 0.5); // Ajusta la escala del modelo si es necesario
-    model.position.set(0, 0, 0); // Asegúrate de que el modelo esté en el centro de la escena
-    scene.add(model);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
 
-    // Añadir un helper para visualizar la caja de contorno del modelo
-    const box = new THREE.BoxHelper(model, 0xff0000);
-    scene.add(box);
+    renderer.render(scene, camera);
+}
 
-}, undefined, function (error) {
-    console.error('Error al cargar el modelo:', error);
-});
-
-// // Animación
-// function animate() {
-//     requestAnimationFrame(animate);
-
-//     cube.rotation.x += 0.01;
-//     cube.rotation.y += 0.01;
-
-//     renderer.render(scene, camera);
-// }
-
-// animate();
+animate();
 
 // Ajustar el tamaño del renderizador al cambiar el tamaño de la ventana
 window.addEventListener('resize', () => {

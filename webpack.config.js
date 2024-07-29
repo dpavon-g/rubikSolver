@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './public/js/3DConfig.js',
+  entry: './public/js/importCube.js',
   output: {
     filename: '3DLibrary.js',
     path: path.resolve(__dirname, 'dist'),
